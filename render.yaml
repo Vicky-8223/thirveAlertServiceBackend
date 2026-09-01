@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cyberpulse-alert-gateway
+    runtime: docker
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: docker
+      - key: MAIN_APPLICATION_URL
+        sync: false # Set to your deployed cyber-priority-engine HTTPS URL (e.g. https://cyber-priority-engine.onrender.com)
+      - key: FRONTEND_URL
+        value: "*" # Or your deployed alert frontend URL
