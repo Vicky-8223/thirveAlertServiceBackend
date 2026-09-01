@@ -11,7 +11,7 @@ import java.util.Arrays;
 @Configuration
 public class CorsConfig {
 
-    @Value("${cors.allowed-origin:https://thrive-frontend1.vercel.app,http://localhost:5173}")
+    @Value("${cors.allowed-origin:https://thrive-frontend2-chi.vercel.app,https://thrive-frontend1.vercel.app,*}")
     private String allowedOrigin;
 
     @Bean

@@ -12,4 +12,4 @@ services:
       - key: MAIN_APPLICATION_URL
         value: https://cyber-priority-engine.onrender.com
       - key: FRONTEND_URL
-        value: "https://thrive-frontend1.vercel.app,*"
+        value: "https://thrive-frontend2-chi.vercel.app,https://thrive-frontend1.vercel.app,*"
