@@ -25,7 +25,7 @@ public class AlertForwardingService {
 
     public AlertForwardingService(
             RestClient restClient,
-            @Value("${main.application.url:http://localhost:8081}") String mainApplicationUrl) {
+            @Value("${main.application.url:https://cyber-priority-engine.onrender.com}") String mainApplicationUrl) {
         this.restClient = restClient;
         // Trim trailing slashes if present
         this.mainApplicationUrl = mainApplicationUrl.endsWith("/")

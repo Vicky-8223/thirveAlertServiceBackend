@@ -6,10 +6,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.Arrays;
+
 @Configuration
 public class CorsConfig {
 
-    @Value("${cors.allowed-origin:http://localhost:5173}")
+    @Value("${cors.allowed-origin:https://thrive-frontend1.vercel.app,http://localhost:5173}")
     private String allowedOrigin;
 
     @Bean
@@ -17,8 +19,12 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                String[] origins = Arrays.stream(allowedOrigin.split(","))
+                        .map(String::trim)
+                        .toArray(String[]::new);
+
                 registry.addMapping("/**")
-                        .allowedOrigins(allowedOrigin.split(","))
+                        .allowedOriginPatterns(origins)
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD")
                         .allowedHeaders("*")
                         .allowCredentials(true)

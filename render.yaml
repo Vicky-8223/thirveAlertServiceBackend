@@ -10,6 +10,6 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: docker
       - key: MAIN_APPLICATION_URL
-        sync: false # Set to your deployed cyber-priority-engine HTTPS URL (e.g. https://cyber-priority-engine.onrender.com)
+        value: https://cyber-priority-engine.onrender.com
       - key: FRONTEND_URL
-        value: "*" # Or your deployed alert frontend URL
+        value: "https://thrive-frontend1.vercel.app,*"
